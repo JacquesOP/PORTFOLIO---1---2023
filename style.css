@@ -1,9 +1,22 @@
 /* ==================== FONTS ==================== */
+@font-face {
+    font-family: "Karla";
+    src: url(./fonts/Karla-VariableFont_wght.ttf);
+};
 
+@font-face {
+    font-family: "Space Mono Bold";
+    src: url(./fonts/SpaceMono-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Space Mono Regular";
+    src: url(./fonts/SpaceMono-Regular.ttf);
+}
 
 /* ==================== VARIABLES CSS ==================== */
 :root{
-    --header-height : 3rem;
+    --header-height : 6.6rem;
 
     /* ========== Colors ========== */
     /* Color mode in HSL (hue, saturation, lightness) */
@@ -69,4 +82,19 @@ image{
 
 body{
     background-color: var(--first-color);
+}
+
+/* ==================== HEADER ==================== */
+header{
+    width: 100%;
+    height: var(--header-height);
+    margin: 0 auto;
+    background-color: red;
+    z-index: var(--z-fixed);
+}
+
+.nav{
+    color: white;
+    font-size: 1.8rem;
+    font-family: "Karla";
 }
