@@ -1,17 +1,9 @@
 /* ==================== FONTS ==================== */
-@font-face {
-    font-family: "Karla";
-    src: url(./fonts/Karla-VariableFont_wght.ttf);
-};
-
-@font-face {
-    font-family: "Space Mono Bold";
-    src: url(./fonts/SpaceMono-Bold.ttf);
-}
-
-@font-face {
-    font-family: "Space Mono Regular";
-    src: url(./fonts/SpaceMono-Regular.ttf);
+@font-face{
+    font-family: 'Graphik';
+    font-weight: 400;
+    src: url(./fonts/graphik-regular-1-webfont.woff) format(woff),
+         url(./fonts/graphik-regular-1-webfont.woff2) format(woff2);
 }
 
 /* ==================== VARIABLES CSS ==================== */
@@ -20,14 +12,16 @@
 
     /* ========== Colors ========== */
     /* Color mode in HSL (hue, saturation, lightness) */
-    --first-color: hsl(180, 8%, 7%);
+    --first-color: hsl(150, 7%, 6%);
+    --first-color-darker: hsl(180, 8%, 0%);
     --second-color: hsl(171, 50%, 40%);
-    --text-color: hsl(20, 60%, 99%);
+    --third-color: hsl(137, 92%, 47%);
+    --text-color: hsl(54, 100%, 94%);
 
     /* ========== Font and typography ========== */
     /* .5rem = 8px | 1rem = 16px ... */
-    --body-font: ;
-    --second-font: ;
+    --title-font: font-family: 'Space Mono', monospace;
+    --text-font: 'Graphik';
     --biggest-font-size: 3rem;
     --big-font-size: 2rem;
     --h1-font-size: 1.5rem;
@@ -43,6 +37,7 @@
     --font-bold: 700;
 
     /* ========== z index ========== */
+    --z-initial: 1;
     --z-tooltip: 10;
     --z-fixed: 100;
 }
@@ -81,20 +76,252 @@ image{
 }
 
 body{
-    background-color: var(--first-color);
+    background-color: var(--first-color-darker);
+    width: 100vw;
+    min-height: 100vh;
 }
 
-/* ==================== HEADER ==================== */
-header{
+/* ==================== CURSOR ==================== */
+.cursor__1{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: var(--third-color);
+    opacity: 1;
+    pointer-events: none;
+    z-index: var(--z-fixed);
+    box-shadow: 0 0 2rem var(--third-color),
+                0 0 6rem var(--third-color),
+                0 0 10rem var(--third-color);
+    transition: transform .3s ease 0s;
+    transform: translate(-50%, -50%);
+}
+
+.cursor__2{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 2;
+    transition: transform .18s ease 0s;
+    transform: translate(-50%, -50%) scale(0.6);
+    border: 2px solid white;
+}
+
+/* =============== header =============== */
+.header{
+    width: 50rem;
+    height: 25%;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    backdrop-filter: blur(16px);
+    background-color: rgba(255, 255, 255, .1);
+    z-index: var(--z-initial);
+    border-radius: 3rem;
+    transition : background-color .3s cubic-bezier(.645, .045, .355, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* ============ profile ============ */
+.nav__profile{
+    position: relative;
     width: 100%;
-    height: var(--header-height);
+    height: 25%;
     margin: 0 auto;
-    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.location h2{
+    font-family: var(--text-font);
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.time__zone h3{
+    font-family: var(--text-font);
+    color: var(--third-color);
+    font-size: 1.6rem;
+}
+
+.date h2{
+    font-family: var(--text-font);
+    color: var(--second-color);
+    font-size: 1.6rem;
+}
+.neant{
+    width: 20%;
+    height: .2rem;
+    background-color: var(--text-color);
+    margin-top: 2rem;
+}
+/* ============ navigation ============ */
+.nav__container{
+    width: 100%;
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.nav__menu, .nav__menu ul{
+    height: 70%;
+}
+
+.nav__menu ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 7rem;
+}
+
+.nav__links h3{
+    font-family: var(--text-font);
+    font-size: 2.1rem;
+    color: var(--text-color);
+}
+
+/* ============ buger btn ============ */
+.menu__img{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
     z-index: var(--z-fixed);
 }
 
-.nav{
-    color: white;
-    font-size: 1.8rem;
-    font-family: "Karla";
+.menu__img a, .close__btn a{
+    color: var(--text-color);
+    font-size: 4rem;
+}
+
+/* ============ close btn ============ */
+.close__btn{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: var(--z-fixed);
+}
+
+.logo{
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    margin-top: 1.5rem;
+}
+
+.logo img{
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+}
+
+/* ==================== MAIN ==================== */
+.main{
+    width: 99%;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: var(--first-color-darker);
+    z-index: 1;
+    display: grid;
+    grid-template-areas: "a a b"
+                         "c d d";
+    gap: 1rem;
+}
+
+/* =============== home =============== */
+.presentation{
+    width: 85%;
+    margin-top: 1rem;
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 3rem;
+    border-radius: 3rem;
+    /* backdrop-filter: blur(16px);
+    background-color: rgba(255, 255, 255, .1); */
+}
+
+.presentation h1{
+    font-family: var(--text-font);
+    font-size: 12rem;
+    margin-left: 4rem;
+    color: var(--text-color);
+}
+
+.presentation h2{
+    font-family: var(--text-font);
+    font-size: 5rem;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-left: 4rem;
+}
+
+.portfolio__updates{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 3rem;
+    grid-area: c;
+    margin-bottom: 1rem;
+}
+
+.portfolio__updates h2{
+    font-family: var(--text-font);
+    font-weight: var(--font-bold);
+    color: var(--text-color);
+    font-size: 6rem;
+    margin-left: 4rem;
+
+}
+
+.portfolio__updates h3{
+    color: var(--text-color);
+    font-size: 2rem;
+    margin-left: 4rem;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.portfolio__updates span{
+    text-decoration: underline;
+    text-transform: uppercase;
+    text-underline-offset: .3rem;
+}
+
+.catch{
+    grid-area: d;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catch__img img{
+    width: 3rem;
+}
+
+.catch p{
+    font-family: var(--text-font);
+    color: var(--text-color);
+    font-size: 5rem;
+    font-weight: var(--font-regular);
+    transform: translateX(20%);
 }

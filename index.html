@@ -10,34 +10,95 @@
     <link rel="stylesheet" href="">
 
     <!-- =============== REMIX ICONS =============== -->
-    <link rel="stylesheet" href="">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     
     <!-- ============ CSS ============ -->
     <link rel="stylesheet" href="style.css">
 
     <!-- ============ JS ============ -->
-    <script src="./main.js"></script>
+    <script src="./main.js" defer></script>
 
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor"></div>
-    <div class="cursor"></div>
+    <!-- ==================== CURSOR ==================== -->
+    <div class="cursor__1"></div>
+    <div class="cursor__2"></div>
 
     <!-- ==================== HEADER ==================== -->
     <header class="header" id="header">
-        <nav class="nav">
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-            </ul>
-        </nav>
+        <div class="nav__profile" id="nav-profile">
+            <div class="logo" id="logo">
+                <img src="./img/profile__pic - Copie.jpg" alt="profile picture">
+            </div>
+            <div class="location" id="location">
+                <h2 id="location-h2">Saint-Brieuc, FRANCE</h2>
+            </div>
+            <div class="date" id="date">
+                <h2 id="date-h2">Friday, 17th 2023</h2>
+            </div>
+            <div class="time__zone" id="time-zone">
+                <h3 id="current-time">12:00:00</h3>
+            </div>
+            <div class="neant"></div>
+        </div>
 
-    </header>
+        <div class="nav__container" id="nav-container">
+            <nav class="nav__menu" id="nav-menu">
+                <ul>
+                    <li class="nav__links" id="nav-links">
+                        <a href="#"><h3>Home</h3></a>
+                    </li>
+                    <li class="nav__links" id="nav-links">
+                        <a href="#"><h3>About</h3></a>
+                    </li>
+                    <li class="nav__links" id="nav-links">
+                        <a href="#"><h3>Skills</h3></a>
+                    </li>
+                    <li class="nav__links" id="nav-links">
+                        <a href="#"><h3>Projects Showcase & Featured</h3></a>
+                    </li>
+                    <li class="nav__links" id="nav-links">
+                        <a href="#"><h3>Contact</h3></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="close__btn" id="close-btn">
+                <a href="#"><i class="ri-close-line"></i></a>
+            </div>
+        </div>
+
+        <div class="menu__img" id="menu-img">
+            <a href="#"><i class="ri-menu-fill"></i></a>
+        </div>
+    </header> 
 
     <!-- ==================== MAIN ==================== -->
     <main class="main" id="main">
         <!-- ==================== HOME ==================== -->
+        <section class="presentation box" id="presentation">
+            <h1>
+                Hi, I'm Jacques-Prince
+            </h1>
+            <h2>
+                Full-Stack Software <br>
+                Engineer(-to-be)
+            </h2>
+        </section>
+
+        <section class="portfolio__updates box" id="portfolio-updates">
+            <h2>PortFolio/23</h2>
+            <h3>
+                <span>Last update :</span> <br>
+                Nov 17th 2023 <br>
+                Portfolio creation
+            </h3>
+        </section>
+
+        <section class="catch box" id="catch">
+            <p>
+                *Here you will find <br> some of my latest <br> works and projects
+            </p>
+        </section>
 
         <!-- ==================== ABOUT ==================== -->
 
@@ -48,11 +109,5 @@
         <!-- ==================== CONTACT ==================== -->
     </main>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer" id="footer">
-
-    </footer>
-
-    
 </body>
 </html>
