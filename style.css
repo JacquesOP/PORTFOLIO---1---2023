@@ -16,6 +16,8 @@
     --first-color-darker: hsl(180, 8%, 0%);
     --second-color: hsl(171, 50%, 40%);
     --third-color: hsl(137, 92%, 47%);
+    --fourth-color: hsl(31, 100%, 52%);
+    --fifth-color: hsl(70, 5%, 25%);
     --text-color: hsl(54, 100%, 94%);
 
     /* ========== Font and typography ========== */
@@ -52,6 +54,7 @@
 html{
     scroll-behavior: smooth;
     font-size: 62.5%;
+    cursor: none;
 }
 
 input, button, textarea{
@@ -76,9 +79,12 @@ image{
 }
 
 body{
-    background-color: var(--first-color-darker);
-    width: 100vw;
-    min-height: 100vh;
+    background-color: hsl(180, 8%, 0%);
+    height: 100%;
+}
+
+main{
+    width: 100%;
 }
 
 /* ==================== CURSOR ==================== */
@@ -92,45 +98,66 @@ body{
     background-color: var(--third-color);
     opacity: 1;
     pointer-events: none;
-    z-index: var(--z-fixed);
+    transform: translate(-50%, -50%);
+    transition: all .3s ease;
+    transition-property: background, transform;
+    transform-origin: 75% 75%;
+    z-index: 108;
+}
+
+.link-grow{
+    transform: scale(3);
+    background-color: var(--third-color);
     box-shadow: 0 0 2rem var(--third-color),
                 0 0 6rem var(--third-color),
                 0 0 10rem var(--third-color);
-    transition: transform .3s ease 0s;
-    transform: translate(-50%, -50%);
+    opacity: .5;
+    z-index: 105;
 }
 
-.cursor__2{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 50%;
-    background-color: transparent;
-    pointer-events: none;
-    z-index: 2;
-    transition: transform .18s ease 0s;
-    transform: translate(-50%, -50%) scale(0.6);
-    border: 2px solid white;
+.link-hovered{
+    transform: scale(2);
+    transform-origin: 100% 100%;
+    background-color: var(--third-color);
+    box-shadow: 0 0 2rem var(--third-color),
+                0 0 6rem var(--third-color),
+                0 0 10rem var(--third-color);
+    opacity: .5;
+    z-index: 105;
+}
+
+.hovered-link{
+    color: black;
+    font-weight: bold;
 }
 
 /* =============== header =============== */
 .header{
-    width: 50rem;
-    height: 25%;
-    position: absolute;
+    width: 6rem;
+    height: 7%;
+    position: fixed;
     top: 1rem;
     right: 1rem;
-    backdrop-filter: blur(16px);
-    background-color: rgba(255, 255, 255, .1);
-    z-index: var(--z-initial);
     border-radius: 3rem;
-    transition : background-color .3s cubic-bezier(.645, .045, .355, 1);
+    backdrop-filter: blur(16px);
+    /* background-color: hsla(171, 50%, 40%, .5); */
+    background-color: hsla(70, 5%, 25%, .5);
+    transition : background-color .3s cubic-bezier(.645, .045, .355, 1), height .4s ease-out;
+    z-index: 107;
+}
+
+.header__show{
+    width: 50rem;
+    height: 98%;
+}
+
+.header__container{
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    gap: 8rem;
 }
 
 /* ============ profile ============ */
@@ -144,12 +171,18 @@ body{
     justify-content: center;
     align-items: center;
     row-gap: 1rem;
+    z-index: 108;
+    display: none;
+}
+
+.nav__profile__show{
+    display: flex;
 }
 
 .location h2{
     font-family: var(--text-font);
     font-size: 1.6rem;
-    color: var(--text-color);
+    color: var(--fourth-color);
 }
 
 .time__zone h3{
@@ -177,6 +210,11 @@ body{
     justify-content: center;
     align-items: center;
     display: none;
+    z-index: 108;
+}
+
+.nav__container__show{
+    display: flex;
 }
 
 .nav__menu, .nav__menu ul{
@@ -191,18 +229,18 @@ body{
     gap: 7rem;
 }
 
-.nav__links h3{
+.h3-links{
     font-family: var(--text-font);
     font-size: 2.1rem;
     color: var(--text-color);
 }
 
-/* ============ buger btn ============ */
+/* ============ burger btn ============ */
 .menu__img{
-    position: absolute;
+    position: fixed;
     top: 1rem;
     right: 1rem;
-    z-index: var(--z-fixed);
+    z-index: 108;
 }
 
 .menu__img a, .close__btn a{
@@ -212,10 +250,9 @@ body{
 
 /* ============ close btn ============ */
 .close__btn{
-    position: absolute;
+    position: fixed;
     top: 1rem;
     right: 1rem;
-    z-index: var(--z-fixed);
 }
 
 .logo{
@@ -233,12 +270,11 @@ body{
 }
 
 /* ==================== MAIN ==================== */
-.main{
+.home{
     width: 99%;
     min-height: 100vh;
     margin: 0 auto;
     background-color: var(--first-color-darker);
-    z-index: 1;
     display: grid;
     grid-template-areas: "a a b"
                          "c d d";
@@ -255,8 +291,7 @@ body{
     justify-content: center;
     row-gap: 3rem;
     border-radius: 3rem;
-    /* backdrop-filter: blur(16px);
-    background-color: rgba(255, 255, 255, .1); */
+    z-index: 105;
 }
 
 .presentation h1{
@@ -281,15 +316,15 @@ body{
     row-gap: 3rem;
     grid-area: c;
     margin-bottom: 1rem;
+    z-index: 105;
 }
 
 .portfolio__updates h2{
     font-family: var(--text-font);
     font-weight: var(--font-bold);
-    color: var(--text-color);
+    color: var(--fourth-color);
     font-size: 6rem;
     margin-left: 4rem;
-
 }
 
 .portfolio__updates h3{
@@ -312,6 +347,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 105;
 }
 
 .catch__img img{
@@ -324,4 +360,15 @@ body{
     font-size: 5rem;
     font-weight: var(--font-regular);
     transform: translateX(20%);
+}
+
+
+/* ==================== ABOUT ==================== */
+.about{
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--text-color);
+    border-top-left-radius:7rem;
+    border-top-right-radius: 7rem;
+    margin: 0 auto;
 }

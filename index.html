@@ -18,54 +18,59 @@
     <!-- ============ JS ============ -->
     <script src="./main.js" defer></script>
 
+    <!-- ============ GSAP ============ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
 <body>
     <!-- ==================== CURSOR ==================== -->
     <div class="cursor__1"></div>
-    <div class="cursor__2"></div>
 
     <!-- ==================== HEADER ==================== -->
     <header class="header" id="header">
-        <div class="nav__profile" id="nav-profile">
-            <div class="logo" id="logo">
-                <img src="./img/profile__pic - Copie.jpg" alt="profile picture">
+        <section class="header__container" id="header-container">
+            <div class="nav__profile" id="nav-profile">
+                <div class="logo" id="logo">
+                    <a href="index.html"><img src="./img/profile__pic - Copie.jpg" id="link-logo" alt="profile picture"></a>
+                </div>
+                <div class="location" id="location">
+                    <h2 id="location-h2">Saint-Brieuc, FRANCE</h2>
+                </div>
+                <div class="date" id="date">
+                    <h2 id="date-h2">Friday, 17th 2023</h2>
+                </div>
+                <div class="time__zone" id="time-zone">
+                    <h3 id="current-time">12:00:00</h3>
+                </div>
+                <div class="neant"></div>
             </div>
-            <div class="location" id="location">
-                <h2 id="location-h2">Saint-Brieuc, FRANCE</h2>
+    
+            <div class="nav__container" id="nav-container">
+                <nav class="nav__menu" id="nav-menu">
+                    <ul>
+                        <li class="nav__links" id="nav-links">
+                            <a href="index.html"><h3 class="h3-links">Home</h3></a>
+                        </li>
+                        <li class="nav__links" id="nav-links">
+                            <a href="#"><h3 class="h3-links">About</h3></a>
+                        </li>
+                        <li class="nav__links" id="nav-links">
+                            <a href="#"><h3 class="h3-links">Skills</h3></a>
+                        </li>
+                        <li class="nav__links" id="nav-links">
+                            <a href="#"><h3 class="h3-links">Projects Showcase & Featured</h3></a>
+                        </li>
+                        <li class="nav__links" id="nav-links">
+                            <a href="#"><h3 class="h3-links">Contact</h3></a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="close__btn" id="close-btn">
+                    <a href="#"><i class="ri-close-line"></i></a>
+                </div>
             </div>
-            <div class="date" id="date">
-                <h2 id="date-h2">Friday, 17th 2023</h2>
-            </div>
-            <div class="time__zone" id="time-zone">
-                <h3 id="current-time">12:00:00</h3>
-            </div>
-            <div class="neant"></div>
-        </div>
 
-        <div class="nav__container" id="nav-container">
-            <nav class="nav__menu" id="nav-menu">
-                <ul>
-                    <li class="nav__links" id="nav-links">
-                        <a href="#"><h3>Home</h3></a>
-                    </li>
-                    <li class="nav__links" id="nav-links">
-                        <a href="#"><h3>About</h3></a>
-                    </li>
-                    <li class="nav__links" id="nav-links">
-                        <a href="#"><h3>Skills</h3></a>
-                    </li>
-                    <li class="nav__links" id="nav-links">
-                        <a href="#"><h3>Projects Showcase & Featured</h3></a>
-                    </li>
-                    <li class="nav__links" id="nav-links">
-                        <a href="#"><h3>Contact</h3></a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="close__btn" id="close-btn">
-                <a href="#"><i class="ri-close-line"></i></a>
-            </div>
-        </div>
+        </section>
 
         <div class="menu__img" id="menu-img">
             <a href="#"><i class="ri-menu-fill"></i></a>
@@ -75,32 +80,47 @@
     <!-- ==================== MAIN ==================== -->
     <main class="main" id="main">
         <!-- ==================== HOME ==================== -->
-        <section class="presentation box" id="presentation">
-            <h1>
-                Hi, I'm Jacques-Prince
-            </h1>
-            <h2>
-                Full-Stack Software <br>
-                Engineer(-to-be)
-            </h2>
-        </section>
+       <section class="home section" id="home">
+            <section class="presentation box" id="presentation">
+                <h1 class="home-h1">
+                    Hi, I'm Jacques-Prince
+                </h1>
+                <h2 class="home-h2">
+                    Full-Stack Software <br>
+                    Engineer(-to-be)
+                </h2>
+            </section>
 
-        <section class="portfolio__updates box" id="portfolio-updates">
-            <h2>PortFolio/23</h2>
-            <h3>
-                <span>Last update :</span> <br>
-                Nov 17th 2023 <br>
-                Portfolio creation
-            </h3>
-        </section>
+            <section class="portfolio__updates box" id="portfolio-updates">
+                <h2 class="portfolio__updates-h2">PortFolio/23</h2>
+                <h3 class="portfolio__updates-h3">
+                    <span>Last update :</span> <br>
+                    Nov 17th 2023 <br>
+                    Portfolio creation
+                </h3>
+            </section>
 
-        <section class="catch box" id="catch">
-            <p>
-                *Here you will find <br> some of my latest <br> works and projects
-            </p>
-        </section>
+            <section class="catch box" id="catch">
+                <p>
+                    *Here you will find <br> some of my latest <br> works and projects
+                </p>
+            </section>
+       </section>
 
         <!-- ==================== ABOUT ==================== -->
+        <section class="about section" id="about">
+            <section class="presentation box" id="presentation">
+                
+            </section>
+
+            <section class="portfolio__updates box" id="portfolio-updates">
+                
+            </section>
+
+            <section class="catch box" id="catch">
+                
+            </section>
+       </section>
 
         <!-- ==================== SKILLS ==================== -->
 
