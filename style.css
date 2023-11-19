@@ -37,6 +37,8 @@
     
 }
 
+
+
 /* ==================== BASE ==================== */
 *, *:before, *:after {
     box-sizing: border-box;
@@ -126,6 +128,7 @@ image{
 }
 
 
+
 /* ==================== HEADER ==================== */
 .header{
     width: 6rem;
@@ -151,7 +154,7 @@ image{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    gap: 8rem;
+    gap: 5rem;
 }
 
 /* ============ profile ============ */
@@ -216,17 +219,28 @@ image{
 }
 
 .nav__menu ul{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 7rem;
+    gap: 1rem;
 }
 
 .h3-links{
+    width: 40rem;
     font-family: var(--text-font);
     font-size: 2.1rem;
     color: var(--white-color);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    transition: background-color .4s ease .1s, color .3s ease .1s;
+}
+
+.h3-links:hover{
+    background-color: hsla(54, 100%, 96%, .5);
+    color: var(--first-color);
 }
 
 /* ============ burger btn ============ */
@@ -394,7 +408,7 @@ image{
 
 
 
-/* ==================== HOME ==================== */
+/* ==================== ABOUT ==================== */
 .about{
     display: flex;
     flex-direction: column;
@@ -404,10 +418,21 @@ image{
     border-top-right-radius: 5rem;
 }
 
+.about__presentation{
+    width: 100%;
+    text-align: center;
+}
+
+.about__title{
+    font-size: 7rem;
+}
+
 .about__img{
     width: 100%;
+    height: 75%;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column-reverse;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -423,7 +448,8 @@ image{
     width: 50rem;
     border-radius: 50%;
     box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
-}
+    transform: translateY(-10%);
+}    
 
 .about__location h2{
     font-family: var(--text-font);

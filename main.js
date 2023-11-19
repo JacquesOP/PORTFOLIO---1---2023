@@ -144,15 +144,35 @@ setInterval(() =>{
 
 
 
+/*===== Smooth Scroll =====*/
+
+const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
+
+
 /*===== GSAP ANIMATION =====*/
 
 // HOME
 gsap.from(".header", {opacity: 0, duration: 1, delay: 2, x:30, stagger: 0.2});
-gsap.from(".white-h1", {opacity: 0, duration: 1, delay: 1.4, x:-60, stagger: 0.2});
-gsap.from(".white-h2", {opacity: 0, duration: 1, delay: 1.8, y:30, stagger: 0.2});
+gsap.from(".home__title", {opacity: 0, duration: 1, delay: 1.4, x:-60, stagger: 0.2});
+gsap.from(".home__title2", {opacity: 0, duration: 1, delay: 1.8, y:30, stagger: 0.2});
 gsap.from(".portfolio__updates-h2", {opacity: 0, duration: 1, delay: 1.6, x:-40, stagger: 0.2});
 gsap.from(".portfolio__updates-h3", {opacity: 0, duration: 1, delay: 1.9, y:30, stagger: 0.2});
 gsap.from(".catch", {opacity: 0, duration: 1, delay: 1.9, y:30, stagger: 0.2});
+
+
+// ABOUT
 
 
 
