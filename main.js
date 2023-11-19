@@ -1,10 +1,20 @@
-/*=============== CURSOR ===============*/
+/*=============== DOM SELECTIONS ===============*/
 const mouseCursor1 = document.querySelector(".cursor__1");
+const profileBtn = document.getElementById("link-logo");
 const navlinks = document.querySelectorAll(".nav__links");
+
+const headerContainer = document.getElementById("header-container");
+const header = document.getElementById("header");
+const navProfile = document.getElementById("nav-profile");
+const navContainer = document.getElementById("nav-container");
+const menuBtn = document.getElementById("menu-img");
+const closeBtn = document.getElementById("close-btn");
 const h3Links = document.querySelector(".h3-links");
 const allLinks = document.querySelectorAll("a");
-const profileBtn = document.getElementById("link-logo");
+const section = document.querySelectorAll('section');
 
+
+// CURSOR
 
 window.addEventListener('mousemove', cursor);
 
@@ -42,37 +52,7 @@ profileBtn.addEventListener("mouseover", linkGrow);
 profileBtn.addEventListener("mouseleave", linkShrink);
 
 
-/*=============== MENU ===============*/
-const headerContainer = document.getElementById("header-container");
-const header = document.getElementById("header");
-const navProfile = document.getElementById("nav-profile");
-const navContainer = document.getElementById("nav-container");
-const menuBtn = document.getElementById("menu-img");
-const closeBtn = document.getElementById("close-btn");
-const main = document.querySelector('.main');
-
-
-// const showMenu = () =>{
-//     header.style.height = "98%";
-//     navContainer.style.display = "flex";
-//     menuBtn.hidden = true;
-// }
-
-// const hideMenu = () =>{
-//     header.style.height = "25%";
-//     navContainer.style.display = "none";
-//     menuBtn.hidden = false;
-// }
-
-// /*===== MENU SHOW =====*/
-// if(menuBtn){
-//     menuBtn.addEventListener("click", showMenu);
-// }
-
-// /*===== MENU HIDDEN =====*/
-// if(closeBtn){
-//     closeBtn.addEventListener("click", hideMenu);
-// }
+// MENU SHOW and HIDE
 
 const showMenu = (e) =>{
     header.classList.add('header__show');
@@ -102,10 +82,9 @@ if(closeBtn){
     closeBtn.addEventListener("click", hideMenu);
 }
 
-if(main){
-    main.addEventListener("click", hideMenu);
-}
-
+section.forEach(section =>{
+    section.addEventListener('click', hideMenu);
+})
 
 function navBtnHovered(e){
     mouseCursor1.classList.add('link-hovered');
@@ -121,6 +100,7 @@ menuBtn.addEventListener("mouseleave", resetNavBtn);
 closeBtn.addEventListener("mouseover", navBtnHovered);
 closeBtn.addEventListener("mouseleave", resetNavBtn);
 
+
 /*=============== GET CURRENT DATE AND HOURS ===============*/
 const date = document.getElementById("date-h2");
 const timeZone = document.getElementById("current-time");
@@ -130,12 +110,17 @@ const timeZone = document.getElementById("current-time");
  * @param {Date} date  
  */
 const formatTime = (date) =>{
-    const hours12 = date.getHours() % 24 || 24;
+    let hours12 = date.getHours() % 24 || 24;
     const minutes = date.getMinutes();
     const secondes = date.getSeconds();
     const isAm = date.getHours() < 12 ;
 
+    if(hours12 === 24){
+        hours12 = 0;
+    }
+
     return `${hours12.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${secondes.toString().padStart(2, "0")} ${isAm ? "AM" : "PM"}`;
+ 
 }
 
 
@@ -158,12 +143,132 @@ setInterval(() =>{
 }, 200);
 
 
+
 /*===== GSAP ANIMATION =====*/
 
 // HOME
 gsap.from(".header", {opacity: 0, duration: 1, delay: 2, x:30, stagger: 0.2});
-gsap.from(".home-h1", {opacity: 0, duration: 1, delay: 1.4, x:-60, stagger: 0.2});
-gsap.from(".home-h2", {opacity: 0, duration: 1, delay: 1.8, y:30, stagger: 0.2});
+gsap.from(".white-h1", {opacity: 0, duration: 1, delay: 1.4, x:-60, stagger: 0.2});
+gsap.from(".white-h2", {opacity: 0, duration: 1, delay: 1.8, y:30, stagger: 0.2});
 gsap.from(".portfolio__updates-h2", {opacity: 0, duration: 1, delay: 1.6, x:-40, stagger: 0.2});
 gsap.from(".portfolio__updates-h3", {opacity: 0, duration: 1, delay: 1.9, y:30, stagger: 0.2});
 gsap.from(".catch", {opacity: 0, duration: 1, delay: 1.9, y:30, stagger: 0.2});
+
+
+
+/*=============== GSAP ANIMATION ===============*/
+// GSAP SrollTrigger
+
+gsap.registerPlugin(ScrollTrigger)
+
+const Scroll = new function() {
+	let sections
+	let page
+	let main
+	let scrollTrigger
+	let tl
+	let win
+	
+	// Init
+	this.init = () => {
+		sections = document.querySelectorAll('section')
+		page = document.querySelector('#page')
+		main = document.querySelector('main')
+		win = {
+			w: window.innerWidth,
+			h: window.innerHeight
+		}
+		
+		this.setupTimeline()
+		this.setupScrollTrigger()
+		window.addEventListener('resize', this.onResize)
+	}
+	
+	// Setup ScrollTrigger
+	this.setupScrollTrigger = () => {
+		page.style.height = (this.getTotalScroll() + win.h) + 'px'
+		
+		scrollTrigger = ScrollTrigger.create({
+			id: 'mainScroll',
+			trigger: 'main',
+			animation: tl,
+			pin: true,
+			scrub: true,
+			snap: {
+				snapTo: (value) => {
+					
+					let labels = Object.values(tl.labels)
+					
+					const snapPoints = labels.map(x => x / tl.totalDuration());
+					const proximity = 0.1
+					
+					console.log(tl.labels , tl.totalDuration(), labels, snapPoints)
+					
+					for (let i = 0; i < snapPoints.length; i++) {
+						if (value > snapPoints[i] - proximity && value < snapPoints[i] + proximity) {
+							return snapPoints[i]
+						}
+					}
+				},
+				duration: { min: 0.2, max: 0.6 },
+			},
+			start: 'top top',
+			end: '+=' + this.getTotalScroll(),
+		})
+	}
+	
+	// Setup timeline
+	this.setupTimeline = () => {
+		tl = gsap.timeline()
+		tl.addLabel("label-initial")
+		
+		sections.forEach((section, index) => {
+			const nextSection = sections[index+1]
+			if (!nextSection) return
+
+			tl.to(nextSection, {
+				y: -1 * nextSection.offsetHeight,
+				duration: nextSection.offsetHeight,
+				ease: 'linear',
+			})
+			.addLabel(`label${index}`)
+		})
+	}
+	
+	// On resize
+	this.onResize = () => {
+		win = {
+			w: window.innerWidth,
+			h: window.innerHeight
+		}
+		
+		this.reset()
+	}
+	
+	// Reset
+	this.reset = () => {
+		if (typeof ScrollTrigger.getById('mainScroll') === 'object') {
+			ScrollTrigger.getById('mainScroll').kill()
+		}
+		
+		if (typeof tl === 'object') {
+			tl.kill()
+			tl.seek(0)
+		}
+		
+		document.body.scrollTop = document.documentElement.scrollTop = 0
+		this.init()
+	}
+	
+	// Get total scroll
+	this.getTotalScroll = () => {
+		let totalScroll = 0
+		sections.forEach(section => {
+			totalScroll += section.offsetHeight
+		})
+		totalScroll -= win.h
+		return totalScroll
+	}
+}
+
+Scroll.init()

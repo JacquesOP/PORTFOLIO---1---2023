@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacques Prince OKOKO | Portfolio</title>
-
+    <title>JPO | Official Portfolio</title>
     <!-- =============== FAVICON =============== -->
-    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" href="">
 
     <!-- =============== REMIX ICONS =============== -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -20,114 +19,120 @@
 
     <!-- ============ GSAP ============ -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-    <!-- ==================== CURSOR ==================== -->
-    <div class="cursor__1"></div>
+    <div id="page">
+        <main>
+            <section class="home" id="home">
+                <div class="presentation box" id="presentation">
+                    <h1 class="white-h1">Hi, I'm Jacques-Prince</h1>
+                    <h2 class="white-h2">
+                        <span id="moda-mora">✺</span>Full-Stack Software<br>
+                        Engineer(-to-be)
+                    </h2>
+                </div>
 
-    <!-- ==================== HEADER ==================== -->
-    <header class="header" id="header">
-        <section class="header__container" id="header-container">
-            <div class="nav__profile" id="nav-profile">
-                <div class="logo" id="logo">
-                    <a href="index.html"><img src="./img/profile__pic - Copie.jpg" id="link-logo" alt="profile picture"></a>
+                <div class="portfolio__updates box" id="portfolio-updates">
+                    <h2 class="portfolio__updates-h2">PortFolio/23</h2>
+                    <h3 class="portfolio__updates-h3">
+                        <span>Last update</span>: <br>
+                        Nov 17th 2023 <br>
+                        Portfolio creation
+                    </h3>
                 </div>
-                <div class="location" id="location">
-                    <h2 id="location-h2">Saint-Brieuc, FRANCE</h2>
+
+                <div class="catch box" id="catch">
+                    <p>
+                        <span id="asterisk">❋</span>Here you will find <br> some of my latest <br> works and projects
+                    </p>
                 </div>
-                <div class="date" id="date">
-                    <h2 id="date-h2">Friday, 17th 2023</h2>
+
+                
+
+            </section>
+
+
+            <section class="about" id="about">
+                <div class="about__presentation box" id="about-presentation">
+                    <h1 class="black-h1">ABOUT</h1> 
                 </div>
-                <div class="time__zone" id="time-zone">
-                    <h3 id="current-time">12:00:00</h3>
+            </section>
+
+
+            <section class="skills" id="skills">
+                <div class="skills__presentation box" id="skills-presentation">
+                    <h1 class="white-h1">SKILLS</h1>
                 </div>
-                <div class="neant"></div>
+            </section>
+
+            <section class="projects" id="projects">
+                <div class="projects__presentation box" id="projects-presentation">
+                    <h1 class="black-h1">PROJECTS</h1>
+                </div>
+            </section>
+
+            <section>
+                <div class="contact__presentation box" id="contact__presentation">
+                    <h1 class="white-h1">CONTACT</h1>
+                </div>
+            </section>
+
+            <!-- ==================== CURSOR ==================== -->
+            <div class="cursor__1"></div>
+            <!-- ==================== HEADER ==================== -->
+            <div class="header" id="header">
+                <div class="header__container" id="header-container">
+                    <div class="nav__profile" id="nav-profile">
+                        <div class="logo" id="logo">
+                            <a href="index.html"><img src="./img/profile__pic - Copie.jpg" id="link-logo" alt="profile picture"></a>
+                        </div>
+                        <div class="location" id="location">
+                            <h2 id="location-h2">Saint-Brieuc, FRANCE</h2>
+                        </div>
+                        <div class="date" id="date">
+                            <h2 id="date-h2">Friday, 17th 2023</h2>
+                        </div>
+                        <div class="time__zone" id="time-zone">
+                            <h3 id="current-time">12:00:00</h3>
+                        </div>
+                        <div class="neant"></div>
+                    </div>
+            
+                    <div class="nav__container" id="nav-container">
+                        <nav class="nav__menu" id="nav-menu">
+                            <ul>
+                                <li class="nav__links" id="nav-links">
+                                    <a href="index.html"><h3 class="h3-links">Home</h3></a>
+                                </li>
+                                <li class="nav__links" id="nav-links">
+                                    <a href="#"><h3 class="h3-links">About</h3></a>
+                                </li>
+                                <li class="nav__links" id="nav-links">
+                                    <a href="#"><h3 class="h3-links">Skills</h3></a>
+                                </li>
+                                <li class="nav__links" id="nav-links">
+                                    <a href="#"><h3 class="h3-links">Projects Showcase & Featured</h3></a>
+                                </li>
+                                <li class="nav__links" id="nav-links">
+                                    <a href="#"><h3 class="h3-links">Contact</h3></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="close__btn" id="close-btn">
+                            <a href="#"><i class="ri-close-line"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="menu__img" id="menu-img">
+                    <a href="#"><i class="ri-menu-fill"></i></a>
+                </div>
+
             </div>
+
+        </main>
+    </div>
     
-            <div class="nav__container" id="nav-container">
-                <nav class="nav__menu" id="nav-menu">
-                    <ul>
-                        <li class="nav__links" id="nav-links">
-                            <a href="index.html"><h3 class="h3-links">Home</h3></a>
-                        </li>
-                        <li class="nav__links" id="nav-links">
-                            <a href="#"><h3 class="h3-links">About</h3></a>
-                        </li>
-                        <li class="nav__links" id="nav-links">
-                            <a href="#"><h3 class="h3-links">Skills</h3></a>
-                        </li>
-                        <li class="nav__links" id="nav-links">
-                            <a href="#"><h3 class="h3-links">Projects Showcase & Featured</h3></a>
-                        </li>
-                        <li class="nav__links" id="nav-links">
-                            <a href="#"><h3 class="h3-links">Contact</h3></a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="close__btn" id="close-btn">
-                    <a href="#"><i class="ri-close-line"></i></a>
-                </div>
-            </div>
-
-        </section>
-
-        <div class="menu__img" id="menu-img">
-            <a href="#"><i class="ri-menu-fill"></i></a>
-        </div>
-    </header> 
-
-    <!-- ==================== MAIN ==================== -->
-    <main class="main" id="main">
-        <!-- ==================== HOME ==================== -->
-       <section class="home section" id="home">
-            <section class="presentation box" id="presentation">
-                <h1 class="home-h1">
-                    Hi, I'm Jacques-Prince
-                </h1>
-                <h2 class="home-h2">
-                    Full-Stack Software <br>
-                    Engineer(-to-be)
-                </h2>
-            </section>
-
-            <section class="portfolio__updates box" id="portfolio-updates">
-                <h2 class="portfolio__updates-h2">PortFolio/23</h2>
-                <h3 class="portfolio__updates-h3">
-                    <span>Last update :</span> <br>
-                    Nov 17th 2023 <br>
-                    Portfolio creation
-                </h3>
-            </section>
-
-            <section class="catch box" id="catch">
-                <p>
-                    *Here you will find <br> some of my latest <br> works and projects
-                </p>
-            </section>
-       </section>
-
-        <!-- ==================== ABOUT ==================== -->
-        <section class="about section" id="about">
-            <section class="presentation box" id="presentation">
-                
-            </section>
-
-            <section class="portfolio__updates box" id="portfolio-updates">
-                
-            </section>
-
-            <section class="catch box" id="catch">
-                
-            </section>
-       </section>
-
-        <!-- ==================== SKILLS ==================== -->
-
-        <!-- ==================== PROJECT ==================== -->
-
-        <!-- ==================== CONTACT ==================== -->
-    </main>
-
 </body>
 </html>
