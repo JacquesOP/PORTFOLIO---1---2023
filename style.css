@@ -470,7 +470,7 @@ image{
     justify-content: flex-start;
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
-    row-gap: 7rem;
+    row-gap: 5rem;
 }
 
 .skills__title{
@@ -482,7 +482,7 @@ image{
 
 .stack__vision{
     width: 100%;
-    height: 50%;
+    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -498,7 +498,6 @@ image{
 
 }
 
-
 .stack__container{
     width: 100%;
     height: 100%;
@@ -506,18 +505,8 @@ image{
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    row-gap: 5rem;
+    row-gap: 3rem;
 }
-
-/* .core__container::after{
-    content: "";
-    position: absolute;
-    border: 2px solid hsl(0, 0%, 20%);
-    bottom: 0;
-    left: 0;
-    width: 55%;
-
-} */
 
 .stackall{
     width: 50%;
@@ -533,7 +522,6 @@ image{
     height: auto;
     margin: 0 auto;
 }
-
 
 .stack{
     height: 75%;
@@ -587,9 +575,8 @@ image{
 }
 
 .frontend__container, .backend__container{
-    visibility: visible;
+    visibility: hidden;
 }
-
 
 /* ============ Softwares ============ */
 .softwares{
@@ -599,8 +586,8 @@ image{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    row-gap: 7rem;
-    transform: translateY(2rem);
+    row-gap: 5rem;
+    transform: translateY(5rem);
 }
 
 .softwares__title{
@@ -641,6 +628,115 @@ image{
 }
 
 
+
+/* ==================== PROJECTS ==================== */
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.information{
+    font-family: var(--text-font);
+    font-size: var(--biggest-font-size);
+    text-align: center;
+    color: var(--white-color);
+}
+
+.projects__presentation{
+    position: absolute;
+    top: 5rem;
+}
+
+.projects__presentation h1{
+    font-family: var(--text-font);
+    font-size: 7rem;
+    color: var(--first-color-darker);
+
+}
+
+.projects__container{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    backdrop-filter: blur(16px);
+    background-color: hsla(70, 5%, 25%, .5);
+    padding: 7rem;
+    border-radius: 3rem;
+    filter: drop-shadow(1rem 1rem 1rem black);
+}
+
+.projects__container p{
+    font-family: var(--text-font);
+    font-size: var(--big-font-size);
+    text-align: center;
+    line-height: 1.6;
+    color: var(--white-color);
+}
+
+
+
+/* ==================== CONTACT ==================== */
+.contact{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 7rem;
+}
+
+.contact__presentation{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 5rem;
+}
+
+.contact__presentation p{
+    color: var(--white-color);
+    font-family: var(--text-font);
+    font-size: var(--h3-font-size);
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.contact__presentation h1{
+    color: var(--white-color);
+    font-family: var(--text-font);
+    font-size: 20rem;
+}
+
+.social__wrapper{
+    width: 50%;
+    background-color: var(--fifth-color);
+    border-radius: 1rem;
+}
+
+.social__container ul{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem;
+
+}
+.social__links{
+    color: var(--white-color);
+    font-size: var(--h2-font-size);
+    margin-right: 10rem;
+}
+
+.contact__special1{
+    color: var(--third-color);
+}
+
+.contact__special2{
+    color: hsl(282, 48%, 46%);
+}
 
 
 
