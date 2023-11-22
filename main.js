@@ -44,7 +44,6 @@ function linkShrink2(e){
 
 navlinks.forEach(link =>{
     link.addEventListener("mouseover", linkGrow);
-
     link.addEventListener("mouseleave", linkShrink);
 })
 
@@ -84,6 +83,10 @@ if(closeBtn){
 
 section.forEach(section =>{
     section.addEventListener('click', hideMenu);
+})
+
+navlinks.forEach(link =>{
+	link.addEventListener('click', hideMenu);
 })
 
 function navBtnHovered(e){
@@ -292,3 +295,78 @@ const Scroll = new function() {
 }
 
 Scroll.init()
+
+
+
+/*=============== GSAP ANIMATION ===============*/
+// GSAP to
+
+gsap.registerPlugin(ScrollToPlugin)
+
+const scrollButton1 = document.querySelector('#home-link');
+const scrollButton2 = document.querySelector('#about-link');
+const scrollButton3 = document.querySelector('#skills-link');
+const scrollButton4 = document.querySelector('#projects-link');
+const scrollButton5 = document.querySelector('#contact-link');
+
+const section1 = document.querySelector('#home');
+const section2 = document.querySelector('#about');
+const section3 = document.querySelector('#skills');
+const section4 = document.querySelector('#projects');
+const section5 = document.querySelector('contact');
+
+
+
+scrollButton1.addEventListener('click', (e) => {
+
+	gsap.to(window, {
+	  duration: 3,
+	  scrollTo: 0,
+	  ease: "sin.inOut"
+	});
+	e.preventDefault();
+});
+
+
+scrollButton2.addEventListener('click', (e) => {
+
+	gsap.to(window, {
+	  duration: 3,
+	  scrollTo: 1318,
+	  ease: "sin.inOut"
+	});
+	e.preventDefault();
+});
+
+
+scrollButton3.addEventListener('click', (e) => {
+
+	gsap.to(window, {
+	  duration: 3,
+	  scrollTo: 2636,
+	  ease: "sin.inOut"
+	});
+	e.preventDefault();
+});
+
+
+scrollButton4.addEventListener('click', (e) => {
+
+	gsap.to(window, {
+	  duration: 3,
+	  scrollTo: 3954,
+	  ease: "sin.inOut"
+	});
+	e.preventDefault();
+});
+
+
+scrollButton5.addEventListener('click', (e) => {
+
+  	gsap.to(window, {
+    	duration: 3,
+    	scrollTo: "max",
+		ease: "sin.inOut"
+  });
+  e.preventDefault();
+});

@@ -609,7 +609,7 @@ image{
 }
 
 .software__icon{
-    width: 10rem;
+    width: 7rem;
 }
 
 .softwares__container img{
@@ -715,6 +715,7 @@ image{
     width: 50%;
     background-color: var(--fifth-color);
     border-radius: 1rem;
+    z-index: 105;
 }
 
 .social__container ul{
